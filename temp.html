@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sheet.css">
+    <title>portfolio</title>
+</head>
+<body>
+    <h1 style="text-align: center">
+        Mahmoud Reda AbouElazm
+    </h1>
+    <h2>
+        Age : 20 years old
+    </h>
+    <h2>
+        If you are curious to know the difference between my age and yours, enter your birth year
+    </h2>
+    <h2>
+     ! Try to use old date , then any year after 2003 
+    </h2><button onclick="check()" class="in">
+            click here
+    </button>
+    <input type="number" class="in" id="user_birth"  placeholder="Enter your birth year" onsubmit="check()">
+    
+    <p id="answer">
+
+    </p>
+    <img src="" id="baba">
+      <h3>CSE student at faculty of Electronic Engineering , Menofia University</h3>
+    <h3> Try to press on the photo v </h3>
+    <img id="pic" src="personal_image.jpg" alt="صورة شخصية" style="width: 20pc;" onclick="ala()">
+    <div>
+    <h3>:  hobbies</h3>
+    <ul>
+        <li>competitive programming</li>
+        <li>coding</li>
+        <li>travel</li> 
+        <li>football</li>
+        <li>video games</li>
+    </ul>
+    </div>
+
+    <div>
+    <h3>
+        : Taken courses about Computer Science
+        </h3>    
+    <ol>
+        <li>object oriented programing</li>
+        <li>computer organization</li>
+        <li>computer networks</li>
+        <li>data structure and algorithm</li>
+    </ol>
+    </div>
+   
+    <h4>
+        Make sure to follow me on <a id = "github" href="https://github.com/Mreda2003" target="_blank">GitHub</a> to see the latest updates
+    </h4>
+    <h4>
+       And on codeforces<a href="https://codeforces.com/profile/Mahmoud_Reda_" target="_blank"> Codeforces</a>
+    </h4>
+    <h4>
+       <a href="https://www.linkedin.com/in/mahmoud-reda-977260233/" target="_blank"> LinkedIn</a>
+    </h4>
+
+    <p>
+        My email : <span><a href="mailto: mahmoudreda20030@gmail.com">mahmoudreda20030@gmail.com</a></span>
+    </p>
+    <h1>
+        Today is :  <span id="day">Monday</span>
+    </h1>
+    <h2>
+        Current time is <span id="hours">9</span>:<span id="minute">14</span>:<span id="second">46</span>  <span id="night">PM</span>
+    </h2>
+    <script>
+        function change(){
+            document.getElementById("pic").src = "personal_image.jpg";
+        }
+        function ala(){
+            alert("Why are you pressuring me? I'm already stressed ;(");
+            document.getElementById("pic").src = "one.jpg";
+            setTimeout(change , 4000);
+
+        }
+        function photo(){
+            document.getElementById("baba").src = "";
+        }
+        function ana_baba(){
+            document.getElementById("baba").src = "baba.jpg";
+            setTimeout(photo , 4000);
+
+        }
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thirsday", "Friday", "Saturday"];
+        const d = new Date();
+        let day = days[d.getDay()];
+
+        document.getElementById("day").innerHTML = day;
+        var hour = d.getHours() , minute =d.getMinutes() , second = d.getSeconds();
+        document.getElementById("hours").innerHTML = hour%12;
+        if(hour%12 === 0)
+            document.getElementById("hours").innerHTML = 12;
+        if(hour%12 >= 1 && hour%12 <= 9)
+            document.getElementById("hours").innerHTML = '0'  + hour%12;
+        document.getElementById("minute").innerHTML = minute;
+        if(minute < 10)
+            document.getElementById("minute").innerHTML = '0'  + minute;
+        document.getElementById("second").innerHTML = second;
+        if(second < 10)
+            document.getElementById("second").innerHTML = '0'  + second;
+        if(hour >= 12)
+        {
+
+            document.getElementById("night").innerHTML = "PM";
+        }else{
+            document.getElementById("night").innerHTML = "AM";
+        }
+
+    </script>
+<script>
+    function check(){
+        let year = document.getElementById("user_birth").value;
+        if(year >= 2023){
+            document.getElementById("answer").innerHTML = "How is it even possible ?";
+        }else if(year <= 1920){
+            document.getElementById("baba").src = "orabi.jpg";
+            document.getElementById("baba").style = "width : 300px";
+            function ret(){
+                document.getElementById("baba").src = "";
+                document.getElementById("answer").innerHTML = "";
+            }
+            setTimeout(ret , 4000);
+        }else if(year == 2003){
+            document.getElementById("answer").innerHTML = "Hey brooo we are the same age !!";
+        }else if (year < 2003){
+            let dif =  2003 - year;
+            document.getElementById("answer").innerHTML = dif + " year/s ";
+        }else {
+            document.getElementById("answer").innerHTML = "You can call me godfather !";
+            ana_baba();
+        }
+    }
+</script>
+
+</body>
+</html>
